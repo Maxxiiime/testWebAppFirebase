@@ -14,8 +14,9 @@ export default function Logout() {
         handleLogout()        
     })
 
-    return
+    return(
     <Typography>
         Succesfully logout
     </Typography>
+    )
 }
