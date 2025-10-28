@@ -3,9 +3,12 @@ import { Card, CardContent, CardActions, Button, Grid, Typography } from '@mui/m
 import { Link } from 'react-router-dom';
 import { getAllBooks } from '../services/getAllBooks';
 import type { Book } from '../utils/BookInterface';
+import { auth } from '../utils/firebase';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 const BookList = () => {
   const [books, setBooks] = useState<Book[]>([]);
+  const [user, loading, error] = useAuthState(auth);
 
   useEffect(() => {
     const fetchBooks = async () => {
@@ -35,9 +38,13 @@ const BookList = () => {
                 <strong>Price:</strong> ${book.price}
               </Typography>
             </CardContent>
+            {user && 
             <CardActions>
               <Button component={Link} to={`/edit/${book.id}`} size="small">Edit</Button>
             </CardActions>
+            
+            }
+            
           </Card>
         </Grid>
       ))}

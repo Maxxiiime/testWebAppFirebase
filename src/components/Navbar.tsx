@@ -26,8 +26,9 @@ const Navbar = () => {
           </Button>
         </>
         }
-        
-        <Button color="inherit" component={Link} to="/login">Connect</Button>
+        {!user && (
+          <Button color="inherit" component={Link} to="/login">Connect</Button>
+        )}
       </Toolbar>
     </AppBar>
   );
