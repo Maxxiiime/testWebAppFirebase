@@ -37,14 +37,17 @@ const BookList = () => {
               <Typography>
                 <strong>Price:</strong> ${book.price}
               </Typography>
+              {book.userId &&
+                <Typography>
+                  <strong>Added by:</strong> {book.userName}
+                </Typography>
+              }
             </CardContent>
-            {user && 
-            <CardActions>
-              <Button component={Link} to={`/edit/${book.id}`} size="small">Edit</Button>
-            </CardActions>
-            
-            }
-            
+            {user && user.uid === book.userId && (
+              <CardActions>
+                <Button component={Link} to={`/edit/${book.id}`} size="small">Edit</Button>
+              </CardActions>
+            )}
           </Card>
         </Grid>
       ))}

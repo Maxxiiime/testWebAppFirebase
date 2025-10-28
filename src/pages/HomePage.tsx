@@ -9,7 +9,7 @@ const HomePage = () => {
     <Container>
       {user && (
         <Typography variant="h4" component="h1" gutterBottom sx={{ color: 'black' }}>
-          Welcome, {user.displayName}!
+          Welcome, {user.email}!
         </Typography>
       )}
       <Typography variant="h4" component="h1" gutterBottom sx={{ color: 'black' }}>

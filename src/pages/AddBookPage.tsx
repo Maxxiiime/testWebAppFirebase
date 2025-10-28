@@ -3,13 +3,20 @@ import { Container, Typography } from '@mui/material';
 import BookForm from '../components/BookForm';
 import { addBook } from '../services/addBook';
 import { useNavigate } from 'react-router-dom';
+import { getAuth } from "firebase/auth";
 
 const AddBookPage = () => {
   const navigate = useNavigate();
 
   const handleSave = async (newBook: any) => {      
-        addBook(newBook);
-        navigate('/');
+        const auth = getAuth();
+        const user = auth.currentUser;
+        if (user) {
+            addBook({...newBook, userId: user.uid, userName: user.email});
+            navigate('/');
+        } else {
+            navigate('/login');
+        }
       }
     
 

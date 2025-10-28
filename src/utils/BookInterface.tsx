@@ -4,4 +4,6 @@ export interface Book {
     author: string;
     price: number;
     summary: string;
+    userId: string;
+    userName?: string;
 }
