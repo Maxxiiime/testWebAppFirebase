@@ -3,9 +3,16 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { TextField, Button, Container } from '@mui/material';
 import { deleteBookById } from '../services/deleteBookById';
+import type { Book } from '../utils/BookInterface';
+
+interface BookFormProps {
+  book?: Book;
+  onSave: (bookData: { title: string; author: string; summary: string; price: string }) => void;
+  canDelete?: boolean;
+}
 
 
-const BookForm = ({ book, onSave, canDelete }) => {
+const BookForm = ({ book, onSave, canDelete }: BookFormProps) => {
   const [title, setTitle] = useState('');
   const [summary, setSummary] = useState('');
   const [author, setAuthor] = useState('');
@@ -23,7 +30,7 @@ const BookForm = ({ book, onSave, canDelete }) => {
     }
   }, [book]);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event:any) => {
     event.preventDefault();
     onSave({ title, author, summary, price });
   };

@@ -1,10 +1,10 @@
-import { Container, Typography, CircularProgress } from '@mui/material';
+import { Container, Typography } from '@mui/material';
 import BookList from '../components/BookList';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../utils/firebase';
 
 const HomePage = () => {
-  const [user, loading, error] = useAuthState(auth);
+  const [user] = useAuthState(auth);
   return (
     <Container>
       {user && (

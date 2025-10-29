@@ -2,7 +2,7 @@ export interface Book {
     id: string;
     title: string;
     author: string;
-    price: number;
+    price: string;
     summary: string;
     userId: string;
     userName?: string;

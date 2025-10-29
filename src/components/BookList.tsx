@@ -8,7 +8,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 
 const BookList = () => {
   const [books, setBooks] = useState<Book[]>([]);
-  const [user, loading, error] = useAuthState(auth);
+  const [user] = useAuthState(auth);
 
   useEffect(() => {
     const fetchBooks = async () => {
@@ -22,7 +22,7 @@ const BookList = () => {
   return (
     <Grid container spacing={3}>
       {books.map((book) => (
-        <Grid item xs={12} sm={6} md={4} key={book.id}>
+        <Grid>
           <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
             <CardContent sx={{ flexGrow: 1 }}>
               <Typography variant="h5" component="div" sx={{ fontWeight: 'bold' }}>
