@@ -25,7 +25,7 @@ const AddBookPage = () => {
       <Typography variant="h4" component="h1" gutterBottom>
         Add Book
       </Typography>
-      <BookForm book={null} onSave={handleSave} canDelete={false}/>
+      <BookForm book={undefined} onSave={handleSave} canDelete={false}/>
     </Container>
   );
 };

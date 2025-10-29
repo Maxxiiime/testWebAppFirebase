@@ -6,7 +6,7 @@ import { auth } from '../utils/firebase';
 
 const Navbar = () => {
 
-  const [user, loading, error] = useAuthState(auth);
+  const [user] = useAuthState(auth);
 
   return (
     <AppBar position="static">
